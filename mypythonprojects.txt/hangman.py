@@ -1,14 +1,14 @@
 import random
 
-word_list = ["python", "hangman", "programming",
-             "computer", "language", "game"]
+# List of words for the game
+word_list = ["python", "hangman", "programming", "computer", "language", "game"]
 
-
+# Function to randomly choose a word from the word list
 def choose_word():
     return random.choice(word_list)
 
-
-def hangman():
+# Main game loop
+def hangman_game():
     chosen_word = choose_word()
     guessed_letters = []
     attempts = 6
@@ -31,8 +31,7 @@ def hangman():
         elif guess in chosen_word:
             guessed_letters.append(guess)
             if display == chosen_word:
-                print(
-                    f"Congratulations! You've guessed the word: {chosen_word}")
+                print(f"Congratulations! You've guessed the word: {chosen_word}")
                 break
         else:
             guessed_letters.append(guess)
@@ -42,6 +41,6 @@ def hangman():
     if attempts == 0:
         print(f"Game over! The word was {chosen_word}.")
 
-
+# Start the game when the script is executed directly
 if __name__ == "__main__":
-    hangman()
+    hangman_game()
